@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -14,6 +15,8 @@ export default function Login() {
   function handleSubmit(event) {
     event.preventDefault();
   }
+
+  let navigate = useNavigate();
 
   return (
     <div className="Login">
@@ -35,7 +38,7 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Button block size="lg" type="submit" disabled={!validateForm()}>
+        <Button onClick={() => {navigate("/goal-page")}} block size="lg" type="submit" disabled={!validateForm()}>
           Login
         </Button>
       </Form>

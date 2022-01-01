@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,6 +23,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Form = ({ handleClose }) => {
+    let navigate = useNavigate();
   const classes = useStyles();
   // create state variables for each input
   const [firstName, setFirstName] = useState('');
@@ -31,6 +33,7 @@ const Form = ({ handleClose }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    navigate("/log-in");
     console.log(firstName, lastName, email, password);
     handleClose();
   };
