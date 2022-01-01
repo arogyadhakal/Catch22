@@ -8,6 +8,7 @@ import Reminder from './components/Pages/ReminderPage';
 import Reccomendation from './components/Pages/ReccomendationPage';
 import Display from './components/Pages/DisplayPage';
 import Form from './components/Pages/SignUpPage';
+import Login from './components/Pages/LoginPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/recommendation-page" element={<Reccomendation/>}/>
         <Route path="/display-page" element={<Display/>}/>
         <Route path="/signup-page" element={<Form/>}/>
+        <Route path="/log-in" element={<Login/>}/>
       </Routes>
     </Router>
   );

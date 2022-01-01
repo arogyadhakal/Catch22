@@ -14,7 +14,7 @@ class Navbar extends Component {
     routeChange=()=> {
         let navigate = useNavigate();
         navigate("/signup-page");
-      }
+    }
 
 
     render() {
