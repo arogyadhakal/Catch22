@@ -22,7 +22,7 @@ const Navbar = () => {
                 </NavBtn>
             </Nav>
         </>
-    )
+    );
 }
 
 export default Navbar;
