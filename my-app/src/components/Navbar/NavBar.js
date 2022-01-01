@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { MenuItems } from "./MenuItems"
 import { Button } from '../Button'
 import './Navbar.css'
+import { useNavigate } from 'react-router-dom'
 
 class Navbar extends Component {
     state = { clicked: false }
@@ -10,10 +11,16 @@ class Navbar extends Component {
         this.setState({ clicked: !this.state.clicked })
     }
 
+    routeChange=()=> {
+        let navigate = useNavigate();
+        navigate("/signup-page");
+      }
+
+
     render() {
         return (
             <nav className="NavbarItems">
-                <h1 className="navbar-logo">React<i className="fab fa-react"></i></h1>
+                <h1 className="navbar-logo">Catch 22<i className="fab fa-react"></i></h1>
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
                 </div>
@@ -28,10 +35,10 @@ class Navbar extends Component {
                         )
                     })}
                 </ul>
-                <Button>Sign up</Button>
+                <Button onClick={this.routeChange}>Sign up</Button>
             </nav>
         )
     }
 }
 
-export default Navbar
+export default Navbar;
