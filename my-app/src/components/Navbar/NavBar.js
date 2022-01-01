@@ -35,7 +35,6 @@ class Navbar extends Component {
                         )
                     })}
                 </ul>
-                <Button onClick={this.routeChange}>Sign up</Button>
             </nav>
         )
     }
