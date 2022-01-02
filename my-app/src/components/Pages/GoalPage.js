@@ -39,8 +39,8 @@ function Goal() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        navigate("/youtube-page");
         console.log("InputFields",inputFields);
-        navigate("/recommendation-page")
 
     };
 

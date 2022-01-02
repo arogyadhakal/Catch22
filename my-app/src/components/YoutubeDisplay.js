@@ -1,10 +1,10 @@
 import React from 'react';
-import Searchbar from '../APIs/SearchBar';
-import youtube from '../APIs/youtube';
-import VideoList from '../APIs/VideoList';
-import VideoDetail from '../APIs/VideoDetail';
+import Searchbar from './APIs/SearchBar';
+import youtube from './APIs/youtube';
+import VideoList from './APIs/VideoList';
+import VideoDetail from './APIs/VideoDetail';
 
-class youtubeDisplay extends React.Component {
+export default class YoutubeDisplay extends React.Component {
     state = {
         videos: [],
         selectedVideo: null
@@ -44,4 +44,4 @@ class youtubeDisplay extends React.Component {
     }
 }
 
-export default youtubeDisplay;
+// export default youtubeDisplay;
