@@ -3,12 +3,15 @@ import Searchbar from './APIs/SearchBar';
 import youtube from './APIs/youtube';
 import VideoList from './APIs/VideoList';
 import VideoDetail from './APIs/VideoDetail';
+import { useNavigate } from 'react-router-dom';
+import {Button} from 'reactstrap';
 
 export default class YoutubeDisplay extends React.Component {
     state = {
         videos: [],
         selectedVideo: null
     }
+    
     handleSubmit = async (termFromSearchBar) => {
         const response = await youtube.get('/search', {
             params: {
@@ -25,6 +28,11 @@ export default class YoutubeDisplay extends React.Component {
         this.setState({selectedVideo: video})
     }
 
+    pathChange=()=>{
+        let navigate = useNavigate();
+        navigate("/reminder-page");
+    }
+
     render() {
         return (
             <div className='ui container' style={{marginTop: '1em'}}>
@@ -39,6 +47,7 @@ export default class YoutubeDisplay extends React.Component {
                         </div>
                     </div>
                 </div>
+                <Button onClick={this.pathChange}> Go to Calendar</Button>
             </div>
         )
     }
