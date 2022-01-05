@@ -57,10 +57,13 @@ function Goal() {
     item.push(search.words);
     const handleSubmit = (e) => {
         e.preventDefault();
+        navigate("/youtube-page");
         console.log("InputFields",inputFields);
+
         console.log(search.words.length);
-        navigate("/recommendation-page")
+        //navigate("/recommendation-page")
         
+
 
     };
 

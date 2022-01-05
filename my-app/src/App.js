@@ -5,11 +5,10 @@ import { BrowserRouter as Router, Routes, Route, Link, Navigate, useNavigate } f
 import Home from './components/Pages/HomeComponent';
 import Goal from './components/Pages/GoalPage';
 import Reminder from './components/Pages/ReminderPage';
-import Reccomendation from './components/Pages/ReccomendationPage';
 import Display from './components/Pages/DisplayPage';
 import Form from './components/Pages/SignUpPage';
 import Login from './components/Pages/LoginPage';
-import youtubeDisplay from './components/APIs/YoutubeDisplay';
+import YoutubeDisplay from './components/YoutubeDisplay';
 
 function App() {
   return (
@@ -19,7 +18,7 @@ function App() {
         <Route path="/home" element={<Home/>}/>
         <Route path="/goal-page" element={<Goal/>}/>
         <Route path="/reminder-page" element={<Reminder/>}/>
-        <Route path="/recommendation-page" element={<Reccomendation/>}/>
+        <Route path="/youtube-page" element={<YoutubeDisplay/>}/>
         <Route path="/display-page" element={<Display/>}/>
         <Route path="/signup-page" element={<Form/>}/>
         <Route path="/log-in" element={<Login/>}/>
