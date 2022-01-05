@@ -8,6 +8,8 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import AddIcon from '@material-ui/icons/Add'
 import Icon from '@material-ui/core/Icon'
 import { useNavigate } from "react-router-dom";
+import search from "./searchWord";
+import { InsertEmoticonSharp } from "@material-ui/icons";
 
 
 const useStyles = makeStyles((theme) =>  ({
@@ -30,22 +32,41 @@ function Goal() {
         {goal: ''},
     ]);
 
+    let word= '';
+    let ind =0;
+    let name='';
+    const item =  [];
     const handleChangeInput = (index,event) => {
         const values = [...inputFields];
         values[index][event.target.name] = event.target.value;
         setInputField(values);
+        word = event.target.value;
+        search.words.push(word);
+        
+        console.log(search.words)
+        
+        
+       
+        
+        
+
+        
 
     }
-
+    
+    item.push(search.words);
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("InputFields",inputFields);
+        console.log(search.words.length);
         navigate("/recommendation-page")
+        
 
     };
 
     const handleAddFields = () => {
         setInputField([...inputFields, { goal: ''}])
+        
     }
 
     const handleRemoveFields = (index) => {

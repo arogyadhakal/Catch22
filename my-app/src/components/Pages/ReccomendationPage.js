@@ -1,70 +1,30 @@
-import React from 'react';
-import Searchbar from '../APIs/SearchBar';
-import youtube from '../APIs/youtube';
-import VideoList from '../APIs/VideoList';
-import VideoDetail from '../APIs/VideoDetail';
-
-class youtubeDisplay extends React.Component {
-    state = {
-        videos: [],
-        selectedVideo: null
-    }
-    handleSubmit = async (termFromSearchBar) => {
-        const response = await youtube.get('/search', {
-            params: {
-                q: termFromSearchBar
-            }
-        })
-
-        this.setState({
-            videos: response.data.items
-        })
-        console.log("this is resp",response);
-    };
-    handleVideoSelect = (video) => {
-        this.setState({selectedVideo: video})
-    }
-
-    render() {
-        return (
-            <div className='ui container' style={{marginTop: '1em'}}>
-                <Searchbar handleFormSubmit={this.handleSubmit}/>
-                <div className='ui grid'>
-                    <div className="ui row">
-                        <div className="eleven wide column">
-                            <VideoDetail video={this.state.selectedVideo}/>
-                        </div>
-                        <div className="five wide column">
-                            <VideoList handleVideoSelect={this.handleVideoSelect} videos={this.state.videos}/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        )
-    }
-}
-
-export default youtubeDisplay;
-
-
-/*
-import React from "react";
+import React, {Component} from "react";
 import {useNavigate} from 'react-router-dom';
+import search from "./searchWord";
 
-function Reccomendation() {
-    let navigate = useNavigate();
+class Reccomendation  extends Component{
+    state = { clicked: false }
 
-    function handleClick() {
-        navigate("/reminder-page")
-
+    handleClick = () => {
+        this.setState({ clicked: !this.state.clicked })
     }
+
+    routeChange=()=> {
+        let navigate = useNavigate();
+        navigate("/signup-page");
+    }
+    
+   render(){
+        
     return (
-        <div>This page is to recommend vids and other stuff
-            <button class="button-64" role="button" onClick={handleClick}><span class="text">All Done!</span></button>
+        <div>
+            <div className="searcwrds" >{search.words.map(word => <h2>{word}<br/></h2>)}</div>
+            
+            <button class="button-64" role="button" onClick={this.routeChange}><span class="text">All Done!</span></button>
             </div>
         
     )
 }
+}
 
 export default Reccomendation
-*/

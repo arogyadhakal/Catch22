@@ -1,15 +1,17 @@
 import React from 'react';
+import search from '../Pages/searchWord';
 
 class Searchbar extends React.Component {
     handleChange = (event) => {
         this.setState({
-            term: event.target.value
+            term: search.words
         });
     
     };
     handleSubmit = event => {
         event.preventDefault();
-        this.props.handleFormSubmit(this.state.term);
+        this.props.handleFormSubmit(search.words);
+        console.log(search.words)
     }
 
     render() {
